@@ -274,7 +274,7 @@ def _RunProcess(cmd, stdinput=None, env=None, cwd=None, sudo=False,
   try:
     task = subprocess.Popen(cmd, stdout=stdoutput, stderr=stderror,
                             stdin=subprocess.PIPE, env=environment, cwd=cwd)
-  except OSError, e:
+  except OSError as e:
     raise GmacpyutilException('Could not execute: %s' % e.strerror)
   if timeout == 0:
     # communicate() will wait until the process is finished, so if we are in

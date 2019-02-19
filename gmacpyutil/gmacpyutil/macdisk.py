@@ -4,6 +4,8 @@ This is basically a convenience wrapper around hdiutil, diskutil and asr to
 unify the three tools so you can easily refer to objects.
 """
 
+from __future__ import print_function
+
 import plistlib
 import re
 import subprocess
@@ -548,7 +550,7 @@ def Clone(source, target, erase=True, verify=True, show_activity=False):
   returncode = task.poll()
   if show_activity:
     while returncode < 0:
-      print task.stdout.readline().strip()
+      print(task.stdout.readline().strip())
       returncode = task.poll()
 
   (unused_stdout, stderr) = task.communicate()
